@@ -69,11 +69,11 @@ function LoginScreen() {
   return (
     <main className="login-page">
       <section className="login-panel">
-          <p className="eyebrow">HTML, CSS & Tailwind CSS Lab</p>
-          <h1>Login to access the styling interview lab</h1>
+        <p className="eyebrow">React Interview Lab</p>
+        <h1>Login to view all React topics</h1>
         <p>
-          Explore runnable styling examples, visual patterns, and interview
-          notes through the protected learning dashboard.
+          Use Auth0 authentication to access the protected learning dashboard,
+          examples, and interview notes.
         </p>
 
         {error ? <p className="field-error">{error.message}</p> : null}
@@ -113,10 +113,10 @@ function AuthenticatedApp() {
     <div className="app-shell">
       <aside className="sidebar">
         <div className="brand">
-          <span className="brand-mark">CSS</span>
+          <span className="brand-mark">R</span>
           <div>
-            <strong>HTML, CSS & Tailwind Lab</strong>
-            <span>Style, build, revise</span>
+            <strong>React Interview Lab</strong>
+            <span>Learn, run, revise</span>
           </div>
         </div>
 
@@ -164,7 +164,7 @@ function AuthenticatedApp() {
       </aside>
 
       <Routes>
-        <Route path="/" element={<Navigate to="/tailwind-lab" replace />} />
+        <Route path="/" element={<Navigate to={`/${topics[0].id}`} replace />} />
         <Route path="/tailwind-lab" element={<TailwindLab />} />
         <Route path="/:topicId/*" element={<TopicPage />} />
       </Routes>
