@@ -1,65 +1,109 @@
-# React Interview Lab
+# HTML, CSS & Tailwind CSS Interview Lab
 
-React Interview Lab is an interactive React and TypeScript learning workspace for frontend interview preparation. It combines runnable examples, detailed revision notes, practical scenarios, mental models, and interview-focused explanations in one project.
+An interactive frontend styling lab for learning and revising HTML, CSS, and Tailwind CSS interview concepts. The project uses React and TypeScript as the application shell, while the learning content focuses on semantic markup, layout, responsive design, reusable UI patterns, and Tailwind CSS v4.
 
-## Key Features
+## What This Project Covers
 
-- Runnable examples for common React concepts and interview questions
-- Topic-based navigation with protected routes
-- Detailed Markdown notes for quick revision
-- React hooks, performance, architecture, security, and testing examples
-- React 19 concepts and modern frontend patterns
-- Auth0 authentication for the learning dashboard
-- Redux Toolkit and typed React-Redux hooks
-- Tailwind CSS and reusable UI-pattern demonstrations
-- Responsive layout for desktop and mobile study sessions
+- Semantic HTML and accessible element structure
+- CSS spacing, sizing, typography, colors, borders, and visual states
+- Flexbox and Grid layout decisions
+- Mobile-first responsive design
+- Hover, focus, active, disabled, loading, and error states
+- Accessible forms, labels, inputs, and validation feedback
+- Tailwind CSS utility-first styling
+- Reusable buttons, badges, cards, forms, and dashboard patterns
+- Conditional utility classes and component variants
+- Dark mode, transitions, and small UI animations
+- Tailwind theme customization and design tokens
+- Interview answers, mental models, code samples, and practical scenarios
 
-## Covered Topics
+## Tailwind Lab Topics
 
-- React fundamentals, components, props, state, events, and rendering
-- Hooks, custom hooks, stale closures, effects, refs, and memoization
-- Routing, protected routes, URL state, loaders, and nested layouts
-- Forms, validation, controlled inputs, and multi-step workflows
-- State management with Context API and Redux Toolkit
-- TanStack Query, API calls, race conditions, polling, and optimistic UI
-- Performance profiling, code splitting, virtualization, and Web Vitals
-- TypeScript types, generics, narrowing, guards, and API contracts
-- Authentication, authorization, CSRF, XSS, and browser storage
-- Testing, error boundaries, deployment, and frontend architecture
-- Micro-frontends, SSR, CSR, SSG, ISR, hydration, and React Server Components
+The interactive Tailwind lab currently includes:
 
-## Tech Stack
+1. Utility-first styling
+2. Spacing and layout
+3. Responsive design
+4. States and accessibility
+5. Forms
+6. Reusable components
+7. Dark mode
+8. Tables and dashboards
+9. Transitions and animation
+10. Theme customization
+11. Tailwind best practices
 
-| Area | Technology |
-| --- | --- |
-| UI | React 19, TypeScript |
-| Build tooling | Vite |
-| Routing | React Router |
-| State management | Redux Toolkit, React Context |
-| Authentication | Auth0 |
-| Styling | CSS, Tailwind CSS |
-| Data grids | AG Grid |
-| Code quality | ESLint |
+It also contains a responsive POI/POA review dashboard example with metric cards, filters, status badges, tables, and practical interview explanations.
+
+## Mental Model
+
+```text
+Semantic HTML / JSX
+        |
+        v
+Tailwind utility classes
+        |
+        v
+Generated CSS for used classes
+        |
+        v
+Responsive and accessible browser UI
+```
+
+Tailwind changes how CSS is authored, not how the browser works. Utilities ultimately generate CSS rules that style normal HTML elements.
+
+## Technology Stack
+
+### Primary learning topics
+
+- HTML5
+- CSS3
+- Tailwind CSS v4
+
+### Application shell
+
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Auth0
+
+React provides the interactive examples and navigation; it is not the main subject of this repository.
 
 ## Project Structure
 
 ```text
-react-interview-lab/
-|-- Interview/                 # Long-form interview revision guides
-|-- public/                    # Static assets
-|-- src/
-|   |-- auth/                  # Auth0 configuration
-|   |-- interview-topics/      # Runnable examples and topic notes
-|   |-- store/                 # Redux Toolkit setup and typed hooks
-|   |-- tailwind-lab/          # Tailwind CSS examples
-|   |-- App.tsx                # Routes and application shell
-|   `-- main.tsx               # Application entry point
-|-- README.md
-|-- package.json
-`-- vite.config.js
+src/
+|-- tailwind-lab/
+|   `-- TailwindLab.tsx       # Interactive Tailwind lessons and UI examples
+|-- index.css                 # Tailwind import and global CSS
+|-- App.css                   # Application shell and responsive layout styles
+|-- App.tsx                   # Navigation, routes, and authenticated layout
+`-- main.tsx                  # Application entry point
+
+Interview/
+`-- Tailwind-css-interview.md # Detailed interview guide and examples
 ```
 
-Each folder under `src/interview-topics` generally contains a runnable React example and a matching Markdown explanation.
+Additional example folders remain available as supporting frontend references, but the repository's primary learning focus is HTML, CSS, and Tailwind CSS.
+
+## Tailwind CSS v4 Setup
+
+Tailwind is integrated through the official Vite plugin:
+
+```js
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+The global stylesheet loads Tailwind with:
+
+```css
+@import "tailwindcss";
+```
 
 ## Getting Started
 
@@ -67,7 +111,7 @@ Each folder under `src/interview-topics` generally contains a runnable React exa
 
 - Node.js 20 or later
 - npm
-- An Auth0 application for authenticated dashboard access
+- An Auth0 application for protected dashboard access
 
 ### Installation
 
@@ -77,8 +121,6 @@ cd react-interview-lab
 npm install
 ```
 
-### Environment Variables
-
 Create `.env.local` in the project root:
 
 ```text
@@ -86,15 +128,11 @@ VITE_AUTH0_DOMAIN=your-auth0-domain
 VITE_AUTH0_CLIENT_ID=your-auth0-client-id
 ```
 
-Keep real credentials out of source control. `.env` and local environment files are ignored by Git.
-
-### Start Development
+Then start the development server:
 
 ```bash
 npm run dev
 ```
-
-Open the local URL printed by Vite.
 
 ## Available Scripts
 
@@ -102,22 +140,22 @@ Open the local URL printed by Vite.
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
 | `npm run build` | Create a production build |
-| `npm run lint` | Run ESLint across the project |
+| `npm run lint` | Run ESLint |
 | `npm run preview` | Preview the production build locally |
 
 ## Validation
-
-Before submitting changes, run:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-## Learning Approach
+## Interview Revision Strategy
 
-Choose a topic from the sidebar, run or interact with its example, and then review the accompanying explanation. The root `Interview` directory contains broader interview guides for deeper revision and scenario-based answers.
+For each topic:
 
-## Repository
-
-GitHub: [karteekkesav/react-interview-lab](https://github.com/karteekkesav/react-interview-lab)
+1. Understand the underlying HTML and CSS behavior.
+2. Review the equivalent Tailwind utility classes.
+3. Run the visual example and test responsive states.
+4. Practice the short interview answer.
+5. Explain when custom CSS, reusable components, or a specialized library would be more appropriate.
